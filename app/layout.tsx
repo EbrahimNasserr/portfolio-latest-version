@@ -8,6 +8,7 @@ import { GSAPProvider } from "@/components/gsap-provider"
 import { Suspense } from "react"
 import "./globals.css"
 import Header from "@/components/Header"
+import FooterMobile from "@/components/footer-mobile"
 
 export const metadata: Metadata = {
   title: "Ebrahim Nasser - Full Stack Developer",
@@ -28,6 +29,9 @@ export default function RootLayout({
             <Suspense fallback={null}>
               <Header/>
               {children}
+             <div className="fixed bottom-0 left-0 right-0 flex justify-center items-center py-4 lg:hidden">
+             <FooterMobile />
+             </div>
             </Suspense>
           </GSAPProvider>
         </ThemeProvider>

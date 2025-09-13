@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -108,9 +109,7 @@ export function AboutSection() {
 
             <div className="relative">
               <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center">
-                <div className="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-4xl font-bold text-primary">EN</span>
-                </div>
+                <Image src="/about.webp" alt="Profile" width={100} height={100} className="w-full h-full object-contain" />
               </div>
             </div>
           </div>

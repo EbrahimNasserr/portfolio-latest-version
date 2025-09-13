@@ -1,12 +1,26 @@
+"use client"
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
 import { Github } from "lucide-react";
 import { Linkedin } from "lucide-react";
 import { Twitter } from "lucide-react";
-import "../styles/header.css";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { useIsScroll } from "@/hooks/use-isScroll";
 
-const navLinks = [
+interface socialLinks {
+  label: string;
+  href: string;
+  icon: React.ReactNode;
+}
+
+interface navLinks {
+  label: string;
+  href: string;
+}
+
+const navLinks: navLinks[] = [
   {
     label: "Home",
     href: "/",
@@ -26,36 +40,41 @@ const navLinks = [
   },
 ]
 
-const socialLinks = [
+const socialLinks: socialLinks[] = [
   {
     label: "GitHub",
     href: "https://github.com/ebrahimnasser",
-    icon: Github,
+    icon: <Github />,
   },
   
   {
     label: "LinkedIn",
     href: "https://linkedin.com/in/ebrahimnasser",
-    icon: Linkedin,
+    icon: <Linkedin />,
   },
   
   {
     label: "Twitter",
     href: "https://twitter.com/ebrahimnasser",
-    icon: Twitter,
+    icon: <Twitter />,
   },
 ]
 
 export default function Header() {
+  const scrolled = useIsScroll()
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="container mx-auto px-12 py-4">
+    <header className={`fixed top-0 left-0 right-0 z-50`}>
+      <div className={cn("container mx-auto px-12 py-4 transition-all", scrolled ? "backdrop-blur-sm" : "")}>
         <div className="flex items-center justify-between">
           <ul className="flex items-center justify-center gap-12 w-[33.33%]">
             {navLinks.map((link) => (
-              <li key={link.label} className="custom-underline">
+             <li key={link.label}>
+               <motion.div className=" relative group" whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
                 <Link href={link.href}>{link.label}</Link>
-              </li>
+                <motion.span className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
+              </motion.div>
+             </li>
             ))}
           </ul>
         <div className="w-[33.33%] flex items-center justify-center gap-2">
@@ -67,7 +86,7 @@ export default function Header() {
             {socialLinks.map((link) => (
               <li key={link.label}>
                 <a title={link.label} href={link.href} target="_blank" rel="noopener noreferrer">
-                    <link.icon className="w-5 h-5" />
+                    {link.icon}
                 </a>
               </li>
             ))}
