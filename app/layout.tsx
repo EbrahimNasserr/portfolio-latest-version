@@ -14,9 +14,6 @@ export const metadata: Metadata = {
   title: "Ebrahim Nasser - Full Stack Developer",
   description:
     "Passionate and detail-oriented Full Stack Web Developer specializing in MERN stack and modern front-end frameworks",
-  icons: {
-    icon: "/favicon.ico",
-  },
 }
 
 export default function RootLayout({
