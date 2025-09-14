@@ -23,13 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} border-2 mx-2 md:mx-6 antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <GSAPProvider>
             <Suspense fallback={null}>
               <Header/>
               {children}
-             <div className="fixed bottom-0 left-0 right-0 flex justify-center items-center py-4 lg:hidden">
+             <div className="fixed bottom-0 left-0 right-0 flex justify-center items-center py-4 md:hidden">
              <FooterMobile />
              </div>
             </Suspense>

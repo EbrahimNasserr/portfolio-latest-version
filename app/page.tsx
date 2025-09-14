@@ -9,7 +9,7 @@ import Progress from "@/components/progress-section"
 
 export default function Home() {
   return (
-    <main className="min-h-screen border-2 mx-6">
+    <main className="min-h-screen">
       <HeroSection />
       <AboutSection />
       <Progress />
