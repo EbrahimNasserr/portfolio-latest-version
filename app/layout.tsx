@@ -9,6 +9,7 @@ import { Suspense } from "react"
 import "./globals.css"
 import Header from "@/components/Header"
 import FooterMobile from "@/components/footer-mobile"
+import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "Ebrahim Nasser - Full Stack Developer",
@@ -29,6 +30,7 @@ export default function RootLayout({
             <Suspense fallback={null}>
               <Header/>
               {children}
+              <Footer />
              <div className="fixed bottom-0 left-0 right-0 flex justify-center items-center py-4 md:hidden">
              <FooterMobile />
              </div>

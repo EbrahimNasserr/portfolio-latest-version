@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Timeline from "../_components/timline";
+import Timeline from "./components/timline";
 
 export default function ChangeLog() {
   const data = [
@@ -148,8 +148,8 @@ export default function ChangeLog() {
     },
   ];
   return (
-    <div className="min-h-screen w-full">
+    <section className="min-h-screen w-full max-w-6xl mx-auto">
         <Timeline data={data} />
-    </div>
+    </section>
   );
 }

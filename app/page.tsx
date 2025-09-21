@@ -3,7 +3,6 @@ import { ExperienceSection } from "@/components/experience-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { SkillsSection } from "@/components/skills-section"
 import { ContactSection } from "@/components/contact-section"
-import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/hero-section"
 import Progress from "@/components/progress-section"
 
@@ -17,7 +16,6 @@ export default function Home() {
       <ProjectsSection />
       <SkillsSection />
       <ContactSection />
-      <Footer />
     </main>
   )
 }

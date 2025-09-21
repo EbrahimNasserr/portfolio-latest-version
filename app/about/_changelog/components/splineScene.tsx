@@ -25,10 +25,12 @@ export default function SplineSceneBasic() {
 
         {/* Right content */}
         <div className="flex-1 relative">
-          <SplineScene 
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full"
-          />
+          <div className="w-full h-full transition-opacity duration-500">
+            <SplineScene 
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              className="w-full h-full"
+            />
+          </div>
         </div>
       </div>
     </Card>

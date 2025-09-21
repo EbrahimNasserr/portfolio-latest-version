@@ -4,7 +4,7 @@ export default function CoreSkills() {
     const skills = [
         { name: 'Frontend Technologies', items: ['React', 'Next.js', 'Vue.js', 'JavaScript', 'HTML/CSS'], icon : <Code2 /> },
         { name: 'Styling & Animation', items: ['Tailwind CSS', 'GSAP', 'Framer Motion'], icon: <Palette /> },
-        { name: 'State Management', items: ['Redux', 'Context API', 'Local Storage'], icon: <Zap /> },
+        { name: 'State Management', items: ['Redux', 'Context API', 'Pinia'], icon: <Zap /> },
         { name: 'Teaching & Mentoring', items: ['GDSC Instructor', 'Student Guidance', 'Workshop Leader'], icon: <Users /> },
         { name: 'Backend Technologies', items: ['Node.js', 'Express.js', 'MongoDB', 'MySQL', 'PostgreSQL'], icon: <Server /> },
         { name: 'API Development', items: ['RESTful APIs', 'GraphQL', 'WebSocket'], icon: <ChartArea /> },

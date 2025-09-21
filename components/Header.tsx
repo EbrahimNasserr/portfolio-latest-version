@@ -65,8 +65,9 @@ export default function Header() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50`}>
-      <div className={cn("container mx-auto px-12 py-4 transition-all", scrolled ? "backdrop-blur-sm" : "")}>
-        <div className="flex items-center justify-between">
+      <div className={cn("container mx-auto px-6 py-4 transition-all", scrolled ? "backdrop-blur-sm" : "")}>
+     <div className="max-w-6xl mx-auto">
+         <div className="flex items-center justify-between">
           <ul className="items-center justify-center gap-12 w-[33.33%] hidden lg:flex">
             {navLinks.map((link) => (
              <li key={link.label}>
@@ -95,6 +96,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
+     </div>
       </div>
     </header>
   )
