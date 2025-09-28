@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { Card, CardContent } from "@/components/ui/card"
+import MainTitle from "./shared/main-title/MainTitle"
 
 interface Skill {
   name: string
@@ -111,9 +112,7 @@ export function SkillsSection() {
     <section id="skills" ref={sectionRef} className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance">
-            Skills & Technologies
-          </h2>
+          <MainTitle title="Skills & Technologies" ref={titleRef} />
 
           <div ref={skillsGridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (

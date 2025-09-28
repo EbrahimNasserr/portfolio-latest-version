@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
+import MainTitle from "./shared/main-title/MainTitle"
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -84,9 +85,9 @@ export function AboutSection() {
     <section id="about" ref={sectionRef} className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center mb-12 text-balance">
-            About Me
-          </h2>
+
+          <MainTitle title="About Me" ref={titleRef} />
+            
 
           <div ref={contentRef} className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-6">

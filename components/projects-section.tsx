@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
+import MainTitle from "./shared/main-title/MainTitle"
 
 interface Project {
   id: number
@@ -130,9 +131,7 @@ export function ProjectsSection() {
     <section id="projects" ref={sectionRef} className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance">
-            Featured Projects
-          </h2>
+          <MainTitle title="Featured Projects" ref={titleRef} />
 
           <div ref={gridRef} className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (

@@ -5,6 +5,7 @@ import { gsap } from "gsap"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin } from "lucide-react"
+import MainTitle from "./shared/main-title/MainTitle"
 
 interface Experience {
   id: number
@@ -142,9 +143,7 @@ export function ExperienceSection() {
     <section id="experience" ref={sectionRef} className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance">
-            Experience
-          </h2>
+          <MainTitle title="Experience" ref={titleRef} />
 
           <div ref={timelineRef} className="relative">
             {/* Timeline line */}
