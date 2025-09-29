@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Project from "./project/Project";
 import Modal from "./modal/Modal";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+
 
 export default function Main() {
   const [modal, setModal] = useState({ active: false, index: 0 });
@@ -21,43 +23,43 @@ export default function Main() {
    const WorkPageprojects = [
     {
         title: "IslamicEcho",
-        src: "/project1.png",
+        src: "/project1.webp",
         color: "#000000",
         link: "https://islamic-echo.vercel.app/",
     },
     {
         title: "IMDB Clone",
-        src: "/project2.png",
+        src: "/project2.webp",
         color: "#fff",
         link: "https://movies-imdb-clone.vercel.app/",
     },
     {
         title: "Nike Store Commerce",
-        src: "/project2.png",
+        src: "/project2.webp",
         color: "#000000",
         link: "https://nike-store-commerce-nu.vercel.app/",
     },
     {
         title: "Crypto React App",
-        src: "/project4.png",
+        src: "/project4.webp",
         color: "#8C8C8C",
         link: "https://crypto-react-app-alpha.vercel.app/",
     },
     {
         title: "Travil",
-        src: "/project3.webp",
+        src: "/project3.png",
         color: "#EFE8D3",
         link: "https://ebrahimnasserr.github.io/Tour-And-Travel/",
     },
     {
         title: "Restaurant",
-        src: "/project4.webp",
+        src: "/project4.png",
         color: "#706D63",
         link: "https://ebrahimnasserr.github.io/Food_Restaurant/",
     },
 ];
   return (
-    <main className=" mt-12">
+    <main className=" mt-12 max-w-6xl mx-auto">
       {windowWidth >= 1024 ? (
         <section className=" w-full h-full py-24 flex flex-col items-center justify-center">
           {WorkPageprojects.map((project, index) => {
@@ -86,15 +88,14 @@ export default function Main() {
                 >
                   <div>
                     <div
-                      className=" w-full p-5 h-[400px] flex justify-center items-center mb-3"
-                      style={{ backgroundColor: project.color }}
+                      className={cn(" w-full p-5 h-[400px] flex justify-center items-center mb-3", project.color)}
                     >
                       <Image
                         src={project.src}
                         sizes="(max-width: 768px) 100vw, 50vw"
                         layout="responsive"
-                        width={1000}
-                        height={500}
+                        width={100}
+                        height={100}
                         alt="image"
                         className=" bg-center bg-cover object-cover"
                         loading="lazy"

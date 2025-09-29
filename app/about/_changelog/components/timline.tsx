@@ -33,20 +33,20 @@ export default function Timeline({ data }: { data: TimelineEntry[] }) {
 
   return (
     <div
-      className="w-full font-sans"
+      className="w-full font-sans py-20 px-4"
       ref={containerRef}
     >
-      <div className=" py-20 px-4">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
+      <div className="text-center">
+        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl mx-auto">
           Changelog from my journey
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
+        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm mx-auto">
           I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
           a timeline of my journey.
         </p>
       </div>
 
-      <div ref={ref} className="relative pb-20">
+      <div ref={ref} className="relative">
         {data.map((item, index) => (
           <div
             key={index}

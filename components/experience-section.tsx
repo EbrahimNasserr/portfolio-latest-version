@@ -142,7 +142,7 @@ export function ExperienceSection() {
   return (
     <section id="experience" ref={sectionRef} className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <MainTitle title="Experience" ref={titleRef} />
 
           <div ref={timelineRef} className="relative">
@@ -164,7 +164,7 @@ export function ExperienceSection() {
                   <div className={`w-full md:w-5/12 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
                     <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 bg-card/50 backdrop-blur-sm border border-border/50">
                       <CardHeader>
-                        <CardTitle className="text-xl font-bold text-foreground">{exp.title}</CardTitle>
+                        <CardTitle className="text-xl font-bold text-foreground text-left">{exp.title}</CardTitle>
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 text-primary font-semibold">
                             <span>{exp.company}</span>
@@ -182,7 +182,7 @@ export function ExperienceSection() {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <ul className="space-y-2 mb-4">
+                        <ul className="space-y-2 mb-4 text-left">
                           {exp.description.map((item, i) => (
                             <li key={i} className="text-muted-foreground leading-relaxed">
                               • {item}
