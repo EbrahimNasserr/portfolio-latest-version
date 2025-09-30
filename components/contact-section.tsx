@@ -125,7 +125,7 @@ export function ContactSection() {
   ]
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 bg-muted/30">
+    <section id="contact" ref={sectionRef} className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <MainTitle title="Get In Touch" ref={titleRef} />

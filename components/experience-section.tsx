@@ -140,7 +140,7 @@ export function ExperienceSection() {
   }, [])
 
   return (
-    <section id="experience" ref={sectionRef} className="py-20 bg-background">
+    <section id="experience" ref={sectionRef} className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <MainTitle title="Experience" ref={titleRef} />
