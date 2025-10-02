@@ -78,7 +78,7 @@ export default function Header() {
              </li>
             ))}
           </ul>
-        <div className="w-[33.33%] flex items-center justify-center gap-2">
+        <div className="w-[33.33%] flex items-center justify-start lg:justify-center gap-2">
         <Link href="/" className="">
             <Image src="/logo.png" className="w-10 h-10 rounded-full" alt="Logo" width={100} height={100} loading="lazy" />
           </Link>
