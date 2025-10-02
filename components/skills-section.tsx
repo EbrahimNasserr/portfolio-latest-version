@@ -185,15 +185,15 @@ export function SkillsSection() {
             <MainTitle title="Skills & Technologies" ref={titleRef} />
           </div>
 
-          <div className="grid text-white lg:grid-cols-2 gap-8 lg:gap-12 bg-gradient-to-r from-[#1a1a1a] to-[#1a1a1a]/60 rounded-lg p-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 bg-gradient-to-r from-card to-card/60 dark:from-gray-900 dark:to-gray-900/60 rounded-lg p-8 text-foreground">
             {/* Technical Proficiency */}
             <div ref={technicalRef} className="">
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="h-6 w-1 bg-white"></div>
+                  <div className="h-6 w-1 bg-primary"></div>
                   <h3 className="text-xl font-bold">Technical Proficiency</h3>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Years of dedicated practice and real-world projects have sharpened my
                   technical skills. Each percentage represents my confidence and experience level
                   with these technologies.
@@ -205,11 +205,11 @@ export function SkillsSection() {
                   <div key={skill.name} className="skill-bar">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium">{skill.name}</span>
-                      <span className="text-sm text-gray-400">{skill.level}%</span>
+                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
-                    <div className="h-1 bg-[#2a2a2a] rounded-full overflow-hidden">
+                    <div className="h-1 bg-muted dark:bg-gray-700 rounded-full overflow-hidden">
                       <div
-                        className="progress-fill h-full bg-white rounded-full transition-all duration-300"
+                        className="progress-fill h-full bg-primary rounded-full transition-all duration-300"
                         data-width={skill.level}
                       ></div>
                     </div>
@@ -222,10 +222,10 @@ export function SkillsSection() {
             <div ref={toolsRef} className="">
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="h-6 w-1 bg-white"></div>
+                  <div className="h-6 w-1 bg-primary"></div>
                   <h3 className="text-xl font-bold">Tools & Technologies</h3>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   My toolkit is constantly expanding as I explore new technologies that enhance
                   user experiences and streamline development workflows. These are my daily
                   companions in crafting digital solutions.
@@ -236,9 +236,9 @@ export function SkillsSection() {
                 {tools.map((tool) => (
                   <div
                     key={tool.name}
-                    className="tool-card bg-black/60 rounded-lg p-4 flex items-center gap-3 hover:bg-[#333333] transition-colors duration-300 cursor-pointer"
+                    className="tool-card bg-muted/50 dark:bg-gray-800/60 rounded-lg p-4 flex items-center gap-3 hover:bg-muted dark:hover:bg-gray-700 transition-colors duration-300 cursor-pointer"
                   >
-                    <div className="w-8 h-8 bg-[#1a1a1a] rounded flex items-center justify-center font-bold text-sm">
+                    <div className="w-8 h-8 bg-background dark:bg-gray-900 rounded flex items-center justify-center font-bold text-sm">
                       {tool.icon}
                     </div>
                     <span className="text-sm font-medium">{tool.name}</span>
@@ -248,13 +248,13 @@ export function SkillsSection() {
             </div>
 
               {/* Methodologies & Approaches */}
-              <div ref={methodologiesRef} className="mt-12 bg-gradient-to-r from-black/60 to-black/30 rounded-lg p-8 lg:col-span-2">
+              <div ref={methodologiesRef} className="mt-12 bg-gradient-to-r from-muted/60 to-muted/30 dark:from-gray-800/60 dark:to-gray-800/30 rounded-lg p-8 lg:col-span-2">
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="h-6 w-1 bg-white"></div>
+                  <div className="h-6 w-1 bg-primary"></div>
                   <h3 className="text-xl font-bold">Methodologies & Approaches</h3>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed max-w-4xl">
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-4xl">
                   Beyond code, my work is guided by proven methodologies and best practices that
                   ensure scalable, maintainable, and user-centered solutions. These approaches form
                   the foundation of every project I undertake.
@@ -265,7 +265,7 @@ export function SkillsSection() {
                 {methodologies.map((methodology) => (
                   <span
                     key={methodology}
-                    className="methodology-tag bg-[#2a2a2a] px-4 py-2 rounded-full text-sm font-medium hover:bg-[#333333] transition-colors duration-300 cursor-pointer"
+                    className="methodology-tag bg-muted dark:bg-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-muted/80 dark:hover:bg-gray-600 transition-colors duration-300 cursor-pointer"
                   >
                     {methodology}
                   </span>

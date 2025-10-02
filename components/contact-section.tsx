@@ -220,7 +220,7 @@ export function ContactSection() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full bg-primary dark:bg-primary/50 cursor-pointer hover:bg-primary/90 text-primary-foreground"
                     size="lg"
                   >
                     <Send className="w-4 h-4 mr-2" />

@@ -179,7 +179,7 @@ export function ProjectsSection() {
 
                       <div className="flex gap-3">
                         {project.liveUrl && (
-                          <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                          <Button asChild size="sm" className="bg-primary dark:bg-primary/50  hover:bg-primary/90 text-primary-foreground">
                             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                               <ExternalLink className="w-4 h-4 mr-2" />
                               Live Demo

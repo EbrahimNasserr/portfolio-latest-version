@@ -38,7 +38,7 @@ export const metadata = {
 export default function page() {
   return (
     <main>
-      <SplineSceneBasic />
+      {/* <SplineSceneBasic /> */}
       {/* <CoreSkills /> */}
       <ChangeLog />
       <Services/>

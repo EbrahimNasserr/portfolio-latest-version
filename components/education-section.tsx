@@ -35,41 +35,39 @@ interface ClubActivity {
 const education: Education[] = [
   {
     id: 1,
-    institution: "SRM Institute of Science and Technology",
-    degree: "Bachelor of Technology",
-    field: "Computer Science and Engineering",
-    location: "Chennai, India",
-    period: "2021 - 2025",
-    status: "current",
-    gpa: "8.5/10",
+    institution: "Thebes Academy",
+    degree: "Bachelor of Computer Science",
+    field: "Computer Science",
+    location: "Giza, Egypt",
+    period: "2021 – 2025",
+    status: "completed",
     description: [
-      "Pursuing Computer Science and Engineering with focus on Software Development",
-      "Relevant coursework: Data Structures, Algorithms, Web Development, Database Management",
-      "Active participant in technical clubs and coding competitions",
+      "Pursuing a degree in Computer Science with a strong focus on software engineering and web development.",
+      "Coursework includes Data Structures, Algorithms, Web Development, Database Systems, and Software Engineering.",
+      "Actively engaged in coding projects, technical learning, and collaborative academic work.",
     ],
     achievements: [
-      "Dean's List for Academic Excellence",
-      "Programming Competition Winner",
-      "Technical Paper Presentation Award",
+      "Maintained strong academic performance in core computer science courses",
+      "Active participation in university technology initiatives",
+      "Recognized for contributions in collaborative student projects",
     ],
   },
   {
     id: 2,
-    institution: "Al-Azhar University",
-    degree: "High School Diploma",
-    field: "Science Track",
+    institution: "Route IT Training Center",
+    degree: "Full Stack Diploma",
+    field: "Software Development",
     location: "Cairo, Egypt",
-    period: "2018 - 2021",
+    period: "2023",
     status: "completed",
     description: [
-      "Graduated with honors in Science track with focus on Mathematics and Physics",
-      "Active member of Computer Science club and Math Olympiad team",
-      "Organized multiple science fairs and technical exhibitions",
+      "Completed an intensive Full Stack Development diploma covering front-end and back-end technologies.",
+      "Focused on React.js, Next.js, Node.js, MongoDB, and modern state management solutions.",
+      "Final project: FreshCart – a dynamic eCommerce application demonstrating real-world implementation of React, Context API, and React Query.",
     ],
     achievements: [
-      "Valedictorian Award",
-      "Mathematics Excellence Award",
-      "Science Fair First Place",
+      "Successfully delivered a fully functional eCommerce project as diploma capstone",
+      "Strengthened expertise in responsive design and API integration",
     ],
   },
 ]
@@ -77,30 +75,17 @@ const education: Education[] = [
 const clubActivities: ClubActivity[] = [
   {
     id: 1,
-    organization: "CodeNex Club SRM",
-    role: "Technical Team Member",
-    location: "SRM University",
-    period: "Sep 2024 - Present",
-    color: "from-blue-500 to-cyan-500",
-    description: "Contributed to multiple club projects as a Web Developer and UI/UX designer by building responsive frontends and crafting clean, user-friendly interfaces that aligned with the team's tech goals.",
+    organization: "Google Developer Student Clubs (GDSC) – Thebes Academy",
+    role: "Frontend Instructor",
+    location: "Cairo, Egypt",
+    period: "2023 – 2024",
+    color: "from-green-500 to-emerald-500",
+    description:
+      "Designed and delivered structured workshops on HTML, CSS, JavaScript, React, and Next.js, guiding students to build real-world projects and master animations.",
     achievements: [
-      "Led development of club's main website",
-      "Mentored 20+ junior developers",
-      "Organized 5+ technical workshops",
-    ],
-  },
-  {
-    id: 2,
-    organization: "Founders Club",
-    role: "Creative Associate Lead",
-    location: "SRM University",
-    period: "Oct 2023 - Present",
-    color: "from-purple-500 to-pink-500",
-    description: "Led the creative direction for various startup ideas by designing brand identities, product UI mockups, and impactful visuals that elevated the club's presence and storytelling.",
-    achievements: [
-      "Designed branding for 10+ startup pitches",
-      "Created product mockups for investor presentations",
-      "Increased club engagement by 150%",
+      "Created and delivered a full front-end development curriculum",
+      "Conducted interactive workshops and coding sessions for 100+ students",
+      "Provided mentorship and one-on-one guidance to help students complete projects",
     ],
   },
 ]
@@ -295,7 +280,7 @@ export function EducationSection() {
               <h3 className="text-2xl font-bold text-foreground">College Clubs</h3>
             </div>
             
-            <div ref={clubsRef} className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+            <div ref={clubsRef} className="grid grid-cols-1">
               {clubActivities.map((club, index) => (
                 <div key={club.id} className="club-card">
                   <Card className="h-full hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-card/50 backdrop-blur-sm border border-border/50 overflow-hidden">

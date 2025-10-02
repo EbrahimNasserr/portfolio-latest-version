@@ -80,7 +80,7 @@ export default function Header() {
           </ul>
         <div className="w-[33.33%] flex items-center justify-center gap-2">
         <Link href="/" className="">
-            <Image src="/placeholder-logo.svg" alt="Logo" width={100} height={100} loading="lazy" />
+            <Image src="/logo.png" className="w-10 h-10 rounded-full" alt="Logo" width={100} height={100} loading="lazy" />
           </Link>
         </div>
           <ul className="flex items-center justify-center gap-6 md:gap-12 w-[33.33%]">
