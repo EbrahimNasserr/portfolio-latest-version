@@ -20,14 +20,14 @@ interface Tool {
 }
 
 const technicalSkills: TechnicalSkill[] = [
-  { name: "React.js", level: 90 },
-  { name: "JavaScript", level: 85 },
-  { name: "Docker", level: 65 },
-  { name: "TypeScript", level: 70 },
-  { name: "Node.js", level: 65 },
-  { name: "UI/UX Design", level: 85 },
-  { name: "Figma", level: 95 },
-  { name: "DevOps", level: 50 },
+  { name: "Next.js", level: 100 },
+  { name: "React.js", level: 100 },
+  { name: "JavaScript", level: 100 },
+  { name: "Vue.js", level: 100 },
+  { name: "TypeScript", level: 100 },
+  { name: "Node.js", level: 100 },
+  { name: "UI/UX Design", level: 100 },
+  { name: "GSAP", level: 100 },
 ]
 
 const tools: Tool[] = [
@@ -36,13 +36,13 @@ const tools: Tool[] = [
   { name: "Node.js", icon: "N" },
   { name: "MongoDB", icon: "M" },
   { name: "Express", icon: "E" },
-  { name: "Styled Components", icon: "S" },
-  { name: "Git", icon: "G" },
-  { name: "Figma", icon: "F" },
-  { name: "Firebase", icon: "F" },
+  { name: "Vue.js", icon: "V" },
+  { name: "GSAP", icon: "G" },
+  { name: "Agile", icon: "A" },
   { name: "GraphQL", icon: "G" },
-  { name: "WebGL", icon: "W" },
+  { name: "AWS", icon: "A" },
   { name: "Framer Motion", icon: "F" },
+  { name: "Tailwind CSS", icon: "T" },
 ]
 
 const methodologies = [
@@ -205,7 +205,7 @@ export function SkillsSection() {
                   <div key={skill.name} className="skill-bar">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                      {/* <span className="text-sm text-muted-foreground">{skill.level}%</span> */}
                     </div>
                     <div className="h-1 bg-muted dark:bg-gray-700 rounded-full overflow-hidden">
                       <div
