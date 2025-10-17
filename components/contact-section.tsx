@@ -89,14 +89,14 @@ export function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "ebrahim.nasser@example.com",
-      href: "mailto:ebrahim.nasser@example.com",
+      value: "ebrahimm.nasser@gmail.com",
+      href: "mailto:ebrahimm.nasser@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+20 123 456 7890",
-      href: "tel:+201234567890",
+      value: "+20 115 215 3667",
+      href: "tel:+201152153667",
     },
     {
       icon: MapPin,
@@ -110,12 +110,12 @@ export function ContactSection() {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/ebrahimnasser",
+      href: "https://github.com/EbrahimNasserr",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/ebrahimnasser",
+      href: "https://www.linkedin.com/in/ebrahim-nasser",
     },
     {
       icon: Twitter,

@@ -209,7 +209,7 @@ export function ProjectsSection() {
               size="lg"
               className="bg-transparent hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             >
-              <a href="https://github.com/ebrahimnasser" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/EbrahimNasserr?tab=repositories" target="_blank" rel="noopener noreferrer">
                 <Github className="w-5 h-5 mr-2" />
                 View All Projects on GitHub
               </a>
