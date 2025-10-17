@@ -1,4 +1,5 @@
 import { useState, useRef, useLayoutEffect, cloneElement, ReactElement, CSSProperties } from 'react';
+import Link from 'next/link'; // 👈 IMPORT Link from next/link
 
 // --- Internal Types and Defaults ---
 
@@ -11,12 +12,13 @@ type NavItem = {
   icon: React.ReactElement;
   label?: string;
   onClick?: () => void;
+  href?: string; // 👈 Add href property
 };
 
 const defaultNavItems: NavItem[] = [
-  { id: 'default-home', icon: <DefaultHomeIcon />, label: 'Home' },
-  { id: 'default-explore', icon: <DefaultCompassIcon />, label: 'Explore' },
-  { id: 'default-notifications', icon: <DefaultBellIcon />, label: 'Notifications' },
+  { id: 'default-home', icon: <DefaultHomeIcon />, label: 'Home', href: '/' }, // Example href
+  { id: 'default-explore', icon: <DefaultCompassIcon />, label: 'Explore', href: '/explore' },
+  { id: 'default-notifications', icon: <DefaultBellIcon />, label: 'Notifications', href: '/notifications' },
 ];
 
 type LimelightNavProps = {
@@ -43,58 +45,77 @@ export const LimelightNav = ({
 }: LimelightNavProps) => {
   const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
   const [isReady, setIsReady] = useState(false);
-  const navItemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+  // Ref type updated to HTMLAnchorElement or HTMLButtonElement since we're using Link
+  const navItemRefs = useRef<Array<HTMLAnchorElement | HTMLButtonElement | null>>([]);
   const limelightRef = useRef<HTMLDivElement | null>(null);
+
+  // We need a way to detect the current path to set the active index correctly.
+  // If you are using the app router, you'd use usePathname from 'next/navigation'.
+  // For simplicity, we'll keep the `defaultActiveIndex` for initialization, but 
+  // for production use with routing, you should calculate the initial activeIndex 
+  // based on the current URL path.
 
   useLayoutEffect(() => {
     if (items.length === 0) return;
 
     const limelight = limelightRef.current;
-    const activeItem = navItemRefs.current[activeIndex];
-    
+    // Cast to HTMLAnchorElement | HTMLButtonElement for offset properties
+    const activeItem = navItemRefs.current[activeIndex] as (HTMLAnchorElement | HTMLButtonElement | null);
+
     if (limelight && activeItem) {
       const newLeft = activeItem.offsetLeft + activeItem.offsetWidth / 2 - limelight.offsetWidth / 2;
+
+      // Apply GSAP or a CSS transition for smooth movement
       limelight.style.left = `${newLeft}px`;
 
       if (!isReady) {
+        // Initial render stabilization
         setTimeout(() => setIsReady(true), 50);
       }
     }
   }, [activeIndex, isReady, items]);
 
   if (items.length === 0) {
-    return null; 
+    return null;
   }
 
   const handleItemClick = (index: number, itemOnClick?: () => void) => {
     setActiveIndex(index);
     onTabChange?.(index);
-    itemOnClick?.();
+    itemOnClick?.(); // Run the optional provided onClick handler
   };
 
   return (
     <nav className={`relative inline-flex items-center h-16 rounded-lg bg-card text-foreground border ${className}`}>
-      {items.map(({ id, icon, label, onClick }, index) => (
-          <a
-            key={id}
-            ref={(el) => { navItemRefs.current[index] = el; }}
-            className={`relative z-20 flex h-full cursor-pointer items-center justify-center p-5 ${iconContainerClassName}`}
-            onClick={() => handleItemClick(index, onClick)}
-            aria-label={label}
-          >
-            {cloneElement(icon as React.ReactElement<any>, {
-              className: `w-6 h-6 transition-opacity duration-100 ease-in-out ${
-                activeIndex === index ? 'opacity-100' : 'opacity-40'
-              } ${(icon as ReactElement<any>).props.className || ''} ${iconClassName || ''}`,
-            })}
-          </a>
-      ))}
+      {items.map(({ id, icon, label, onClick, href }, index) => { // 👈 Destructure href
+        // Determine if we should render a Link component or a regular button/anchor
+        const Wrapper = href ? Link : 'a';
 
-      <div 
+        // Props for the anchor/Link element
+        const itemProps = {
+          key: id,
+          ref: (el: HTMLAnchorElement | HTMLButtonElement | null) => { navItemRefs.current[index] = el; },
+          className: `relative z-20 flex h-full cursor-pointer items-center justify-center p-5 ${iconContainerClassName}`,
+          // The onClick here handles the state change for the limelight effect
+          onClick: () => handleItemClick(index, onClick),
+          'aria-label': label,
+          ...(href ? { href } : { role: 'button' }), // Add href for Link, or role for button-like behavior
+        };
+
+        return (
+          <Wrapper {...itemProps}>
+            {cloneElement(icon as React.ReactElement<any>, {
+              className: `w-6 h-6 transition-opacity duration-100 ease-in-out ${activeIndex === index ? 'opacity-100' : 'opacity-40'
+                } ${(icon as ReactElement<any>).props.className || ''} ${iconClassName || ''}`,
+            })}
+          </Wrapper>
+        );
+      })}
+
+      <div
         ref={limelightRef}
-        className={`absolute top-0 z-10 w-11 h-[5px] rounded-full bg-primary shadow-[0_50px_15px_var(--primary)] ${
-          isReady ? 'transition-[left] duration-400 ease-in-out' : ''
-        } ${limelightClassName}`}
+        className={`absolute top-0 z-10 w-11 h-[5px] rounded-full bg-primary shadow-[0_50px_15px_var(--primary)] ${isReady ? 'transition-[left] duration-400 ease-in-out' : ''
+          } ${limelightClassName}`}
         style={{ left: '-999px' } as CSSProperties}
       >
         <div className="absolute left-[-30%] top-[5px] w-[160%] h-14 [clip-path:polygon(5%_100%,25%_0,75%_0,95%_100%)] bg-gradient-to-b from-primary/30 to-transparent pointer-events-none" />

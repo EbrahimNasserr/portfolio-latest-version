@@ -25,7 +25,7 @@ export const IntroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          A Legacy of Excellence, How Our Dedication Fuels Everything We Do
+          A Legacy of Excellence, How Our Dedication Fuels Everything I Do
         </motion.h1>
 
         <motion.p
@@ -34,19 +34,10 @@ export const IntroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          From day one, our mission has been to create solutions that inspire,
+          From day one, My mission has been to create solutions that inspire,
           empower, and make a difference. With a commitment to quality and
           creativity.
         </motion.p>
-
-        {/* <motion.button
-          className="bg-primary hover:bg-primary/90 shadow-lg flex w-fit mx-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-primary-foreground px-5 py-3 rounded-full cursor-pointer"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          Explore Our Services <ArrowRight className="" />
-        </motion.button> */}
       </div>
     </section>
   );

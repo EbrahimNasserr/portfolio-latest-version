@@ -170,7 +170,7 @@ const ContactPage = () => {
             />
 
             {/* Page Content */}
-            <div className="relative bg-background text-foreground flex flex-col overflow-x-hidden">
+            <div className="relative bg-background text-foreground flex flex-col">
                 <InteractiveDotsBackground />
                 <div className="absolute inset-0 z-1 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-background/90" />
 

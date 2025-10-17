@@ -24,14 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning className={`font-sans ${GeistSans.variable} ${GeistMono.variable} border-2 mx-2 md:mx-6 antialiased`}>
+      <body suppressHydrationWarning className={`font-sans ${GeistSans.variable} ${GeistMono.variable} border-2 mx-2 md:mx-6 mb-24 md:mb-0 antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <GSAPProvider>
             <Suspense fallback={null}>
               <Header/>
               {children}
               <Footer />
-             <div className="fixed bottom-0 left-0 right-0 flex justify-center items-center py-4 md:hidden">
+             <div className="fixed z-[999] bottom-0 left-0 right-0 flex justify-center items-center py-4 md:hidden">
              <FooterMobile />
              </div>
             </Suspense>
