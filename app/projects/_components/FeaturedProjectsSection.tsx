@@ -5,16 +5,36 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ContainerScrollStack, CardSticky } from "./CardsStack"
 import { PROJECTS } from "./data"
+import { motion, useTransform, useScroll } from "framer-motion"
+import { useRef } from "react"
 
 // ============================================================================
 // FEATURED PROJECTS SECTION COMPONENT
 // ============================================================================
 
 export const FeaturedProjectsSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+  const y1 = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], ["0deg", "360deg"]);
+  const y2 = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], ["0deg", "360deg"]);
   return (
-    <section className="relative bg-background py-24">
+    <section ref={sectionRef} className="relative bg-gradient-to-b from-muted/30 to-background text-foreground py-10">
+      <motion.div
+        className="absolute top-20 left-10 w-64 h-64 rounded-full bg-primary/5 blur-3xl"
+        style={{ y: y1, rotate: rotate1 }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-primary/5 blur-3xl"
+        style={{ y: y2, rotate: rotate2 }}
+      />
+
       <div className="container mx-auto px-6">
-        <div className="mb-16 text-center">
+        <div className="mb-8 text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
             Featured <span className="text-primary">Projects</span>
           </h2>

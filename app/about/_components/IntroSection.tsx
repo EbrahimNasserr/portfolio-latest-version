@@ -9,9 +9,9 @@ export const IntroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-28 px-4 bg-gradient-to-b from-background to-muted/30 overflow-hidden"
+      className="relative py-28 px-4 bg-gradient-to-b from-background via-background to-muted/20 overflow-hidden"
     >
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#a3a3a32e_1px,transparent_1px),linear-gradient(to_bottom,#a3a3a32e_1px,transparent_1px)] bg-[size:70px_70px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_100%,#000_70%,transparent_110%)]" />
+     <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#a3a3a32e_1px,transparent_1px),linear-gradient(to_bottom,#a3a3a32e_1px,transparent_1px)] bg-[size:70px_70px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_100%,#000_70%,transparent_110%)]" />
       
       <div className="relative z-10 max-w-2xl mx-auto">
         <div className="text-primary text-sm font-semibold uppercase mb-6 flex items-center justify-center gap-2">
