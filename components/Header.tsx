@@ -47,7 +47,7 @@ export default function Header() {
           <div className="flex items-center justify-between  px-3 lg:px-0">
             <div className=" flex items-center justify-start lg:justify-center gap-2">
               <Link href="/" className="">
-                <Image src="/logo.svg" className="w-10 h-10 rounded-full" alt="Logo" width={50} height={50} loading="lazy" />
+                <Image src="/logo.svg" className=" w-28 h-10 rounded-full" alt="Logo" width={50} height={50} loading="lazy" />
               </Link>
             </div>
             <ul className="items-center justify-center gap-12  hidden lg:flex">

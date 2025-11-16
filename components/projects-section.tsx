@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState, useCallback } from "react"
 import { gsap } from "gsap"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -14,13 +14,26 @@ interface Project {
   description: string
   longDescription: string
   image: string
+  video?: string
   technologies: string[]
   liveUrl?: string
   githubUrl?: string
   featured: boolean
 }
 
-const projects: Project[] = [
+interface CloudinaryVideo {
+  publicId: string
+  url: string
+  format: string
+  width?: number
+  height?: number
+  duration?: number
+  bytes?: number
+  createdAt: string
+  folder?: string
+}
+
+const initialProjects: Project[] = [
   {
     id: 1,
     title: "Alamir Store",
@@ -51,7 +64,7 @@ const projects: Project[] = [
     description: "Smart task management and productivity app with AI-powered suggestions",
     longDescription:
       "A modern productivity application that helps users organize tasks, set goals, and track progress. Features AI-powered task suggestions, calendar integration, team collaboration tools, and detailed analytics.",
-    image: "/task-management-dashboard.png",
+    image: "/project1.webp",
     technologies: ["React", "TypeScript", "Firebase", "OpenAI API", "Tailwind CSS"],
     liveUrl: "https://plan4u.app",
     githubUrl: "https://github.com/ebrahimnasser/plan4u",
@@ -71,10 +84,285 @@ const projects: Project[] = [
   },
 ]
 
+function ProjectCard({ project }: { project: Project }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = useState(false)
+  const [isInView, setIsInView] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Intersection Observer to detect when card is in viewport
+  useEffect(() => {
+    if (!project.video || !cardRef.current) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true)
+            observer.disconnect()
+          }
+        })
+      },
+      { rootMargin: "50px" } // Start loading slightly before card is visible
+    )
+
+    observer.observe(cardRef.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [project.video])
+
+  // Load video source only when in viewport and on hover
+  const loadVideo = useCallback(() => {
+    if (videoRef.current && project.video && !videoLoaded) {
+      const video = videoRef.current
+      video.src = project.video
+
+      // Handle video ready to play
+      const handleCanPlay = () => {
+        setVideoLoaded(true)
+        video.removeEventListener("canplay", handleCanPlay)
+      }
+
+      video.addEventListener("canplay", handleCanPlay, { once: true })
+
+      // Handle loading errors
+      const handleError = () => {
+        console.warn(`Failed to load video for ${project.title}`)
+        video.removeEventListener("error", handleError)
+      }
+
+      video.addEventListener("error", handleError, { once: true })
+
+      // Start loading the video
+      video.load()
+    }
+  }, [project.video, videoLoaded, project.title])
+
+  const handleMouseEnter = useCallback(() => {
+    // Clear any pending timeout
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+    }
+
+    setIsHovered(true)
+
+    // Only load and play video if card is in viewport
+    if (isInView && project.video) {
+      if (!videoLoaded) {
+        loadVideo()
+      }
+
+      // Play video when ready
+      const playVideo = () => {
+        if (videoRef.current && (videoLoaded || videoRef.current.readyState >= 2)) {
+          videoRef.current.play().catch((error) => {
+            // Silently handle autoplay restrictions
+            if (error.name !== "NotAllowedError") {
+              console.error("Error playing video:", error)
+            }
+          })
+        } else if (videoRef.current) {
+          // Wait for video to be ready
+          const checkReady = () => {
+            if (videoRef.current && videoRef.current.readyState >= 2) {
+              videoRef.current.play().catch(() => { })
+              videoRef.current.removeEventListener("canplay", checkReady)
+            }
+          }
+          videoRef.current.addEventListener("canplay", checkReady, { once: true })
+        }
+      }
+
+      // Small delay to ensure smooth transition
+      hoverTimeoutRef.current = setTimeout(playVideo, 50)
+    }
+  }, [isInView, project.video, loadVideo, videoLoaded])
+
+  const handleMouseLeave = useCallback(() => {
+    // Clear any pending timeout
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+      hoverTimeoutRef.current = null
+    }
+
+    setIsHovered(false)
+
+    if (videoRef.current) {
+      videoRef.current.pause()
+      videoRef.current.currentTime = 0
+    }
+  }, [])
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current)
+      }
+      if (videoRef.current) {
+        videoRef.current.pause()
+        videoRef.current.src = ""
+        videoRef.current.load()
+      }
+    }
+  }, [])
+
+  return (
+    <div ref={cardRef} className={project.featured ? "md:col-span-2" : ""}>
+      <Card
+        className={`project-card group hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-card/50 backdrop-blur-sm border border-border/50 overflow-hidden`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className={`${project.featured ? "md:flex md:items-center" : ""}`}>
+          <div className={`${project.featured ? "md:w-1/2" : ""} relative overflow-hidden`}>
+            {project.video ? (
+              <>
+                <img
+                  src={project.image || "/placeholder.svg"}
+                  alt={project.title}
+                  className={`w-full h-64 object-cover transition-opacity duration-500 ${isHovered ? "opacity-0" : "opacity-100"
+                    }`}
+                  loading="lazy"
+                  decoding="async"
+                />
+                {isInView && (
+                  <video
+                    ref={videoRef}
+                    className={`absolute inset-0 w-full h-64 object-cover transition-opacity duration-500 ${isHovered && videoLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    aria-label={`${project.title} preview video`}
+                  />
+                )}
+              </>
+            ) : (
+              <img
+                src={project.image || "/placeholder.svg"}
+                alt={project.title}
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          </div>
+
+          <div className={`${project.featured ? "md:w-1/2" : ""} p-6`}>
+            <CardHeader className="p-0 mb-4">
+              <div className="flex items-center justify-between mb-2">
+                <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  {project.title}
+                </CardTitle>
+                {project.featured && (
+                  <Badge className="bg-primary/20 text-primary border-primary/30">Featured</Badge>
+                )}
+              </div>
+              <p className="text-muted-foreground leading-relaxed">{project.longDescription}</p>
+            </CardHeader>
+
+            <CardContent className="p-0">
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.technologies.map((tech) => (
+                  <Badge
+                    key={tech}
+                    variant="secondary"
+                    className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+
+              <div className="flex gap-3">
+                {project.liveUrl && (
+                  <Button asChild size="sm" className="bg-primary dark:bg-primary/50  hover:bg-primary/90 text-primary-foreground">
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Live Demo
+                    </a>
+                  </Button>
+                )}
+                {project.githubUrl && (
+                  <Button asChild variant="outline" size="sm">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </a>
+                  </Button>
+                )}
+              </div>
+            </CardContent>
+          </div>
+        </div>
+      </Card>
+    </div>
+  )
+}
+
 export function ProjectsSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
+  const [projects, setProjects] = useState<Project[]>(initialProjects)
+
+  // Fetch videos from Cloudinary and map them to projects
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch("/api/cloudinary/videos?folder=portfolio")
+        const data = await response.json()
+
+        if (data.success && data.videos && data.videos.length > 0) {
+          // Map videos to projects
+          const updatedProjects = initialProjects.map((project) => {
+            // Try to find matching video by project ID or title
+            const matchingVideo = data.videos.find((video: CloudinaryVideo) => {
+              const publicIdLower = video.publicId.toLowerCase()
+              const projectIdStr = project.id.toString()
+              const titleLower = project.title.toLowerCase().replace(/\s+/g, "-")
+
+              // Match by project ID (e.g., "portfolio/project-1" or "portfolio/1")
+              if (
+                publicIdLower.includes(`project-${projectIdStr}`) ||
+                publicIdLower.includes(`/${projectIdStr}.`) ||
+                publicIdLower.includes(`/${projectIdStr}_`)
+              ) {
+                return true
+              }
+
+              // Match by project title (e.g., "portfolio/alamir-store")
+              if (publicIdLower.includes(titleLower)) {
+                return true
+              }
+
+              return false
+            })
+
+            // Return project with video URL if found
+            return {
+              ...project,
+              video: matchingVideo ? matchingVideo.url : project.video,
+            }
+          })
+
+          setProjects(updatedProjects)
+        }
+      } catch (error) {
+        console.error("Error fetching videos from Cloudinary:", error)
+        // Keep using initial projects if fetch fails
+      }
+    }
+
+    fetchVideos()
+  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -135,70 +423,7 @@ export function ProjectsSection() {
 
           <div ref={gridRef} className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <Card
-                key={project.id}
-                className={`project-card group hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-card/50 backdrop-blur-sm border border-border/50 overflow-hidden ${
-                  project.featured ? "md:col-span-2" : ""
-                }`}
-              >
-                <div className={`${project.featured ? "md:flex md:items-center" : ""}`}>
-                  <div className={`${project.featured ? "md:w-1/2" : ""} relative overflow-hidden`}>
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-
-                  <div className={`${project.featured ? "md:w-1/2" : ""} p-6`}>
-                    <CardHeader className="p-0 mb-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                          {project.title}
-                        </CardTitle>
-                        {project.featured && (
-                          <Badge className="bg-primary/20 text-primary border-primary/30">Featured</Badge>
-                        )}
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed">{project.longDescription}</p>
-                    </CardHeader>
-
-                    <CardContent className="p-0">
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            variant="secondary"
-                            className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-
-                      <div className="flex gap-3">
-                        {project.liveUrl && (
-                          <Button asChild size="sm" className="bg-primary dark:bg-primary/50  hover:bg-primary/90 text-primary-foreground">
-                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="w-4 h-4 mr-2" />
-                              Live Demo
-                            </a>
-                          </Button>
-                        )}
-                        {project.githubUrl && (
-                          <Button asChild variant="outline" size="sm">
-                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                              <Github className="w-4 h-4 mr-2" />
-                              Code
-                            </a>
-                          </Button>
-                        )}
-                      </div>
-                    </CardContent>
-                  </div>
-                </div>
-              </Card>
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
 
