@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://ebrahimnasser.dev"),
+  metadataBase: new URL("https://ebrahim-nasser.vercel.app/"),
   alternates: {
     canonical: "/",
   },
@@ -107,8 +107,8 @@ const structuredData = {
   "name": "Ebrahim Nasser",
   "jobTitle": "Full-Stack Developer & UI/UX Designer",
   "description": "Skilled Full-Stack Developer and UI/UX Designer specializing in React, Next.js, TypeScript, and modern web technologies",
-  "url": "https://ebrahimnasser.dev",
-  "image": "https://ebrahimnasser.dev/logo.PNG",
+  "url": "https://ebrahim-nasser.vercel.app/",
+  "image": "https://ebrahim-nasser.vercel.app/logo.PNG",
   "sameAs": [
     "https://github.com/ebrahimnasser",
     "https://linkedin.com/in/ebrahimnasser",

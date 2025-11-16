@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         address: false,
         telephone: false,
     },
-    metadataBase: new URL("https://ebrahimnasser.dev"),
+    metadataBase: new URL("https://ebrahim-nasser.vercel.app/"),
     alternates: {
         canonical: "/contact",
     },
@@ -101,14 +101,14 @@ const structuredData = {
     "@type": "ContactPage",
     "name": "Contact Ebrahim Nasser",
     "description": "Get in touch with Ebrahim Nasser for web development projects and collaborations",
-    "url": "https://ebrahimnasser.dev/contact",
+    "url": "https://ebrahim-nasser.vercel.app/contact",
     "mainEntity": {
         "@type": "Person",
         "name": "Ebrahim Nasser",
         "jobTitle": "Full-Stack Developer & UI/UX Designer",
         "description": "Full-Stack Developer specializing in React, Next.js, TypeScript, and modern web technologies",
-        "url": "https://ebrahimnasser.dev",
-        "image": "https://ebrahimnasser.dev/logo.PNG",
+        "url": "https://ebrahim-nasser.vercel.app/",
+        "image": "https://ebrahim-nasser.vercel.app/logo.PNG",
         "email": "ebrahim.nasser.dev@gmail.com",
         "telephone": "+20 123 456 7890",
         "address": {
@@ -145,13 +145,13 @@ const structuredData = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://ebrahimnasser.dev"
+                "item": "https://ebrahim-nasser.vercel.app/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Contact",
-                "item": "https://ebrahimnasser.dev/contact"
+                "item": "https://ebrahim-nasser.vercel.app/contact"
             }
         ]
     }

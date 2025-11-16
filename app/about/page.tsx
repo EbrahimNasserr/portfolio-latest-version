@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://ebrahimnasser.dev"),
+  metadataBase: new URL("https://ebrahim-nasser.vercel.app/"),
   alternates: {
     canonical: "/about",
   },
@@ -96,14 +96,14 @@ const structuredData = {
   "@type": "AboutPage",
   "name": "About Ebrahim Nasser",
   "description": "Learn about Ebrahim Nasser's journey as a Full-Stack Developer and UI/UX Designer",
-  "url": "https://ebrahimnasser.dev/about",
+  "url": "https://ebrahim-nasser.vercel.app/about",
   "mainEntity": {
     "@type": "Person",
     "name": "Ebrahim Nasser",
     "jobTitle": "Full-Stack Developer & UI/UX Designer",
     "description": "Computer Science student and experienced Full-Stack Developer specializing in React, Next.js, and modern web technologies",
-    "url": "https://ebrahimnasser.dev",
-    "image": "https://ebrahimnasser.dev/about.webp",
+    "url": "https://ebrahim-nasser.vercel.app/",
+    "image": "https://ebrahim-nasser.vercel.app/about.webp",
     "sameAs": [
       "https://github.com/ebrahimnasser",
       "https://linkedin.com/in/ebrahimnasser",
@@ -159,13 +159,13 @@ const structuredData = {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://ebrahimnasser.dev"
+        "item": "https://ebrahim-nasser.vercel.app/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "About",
-        "item": "https://ebrahimnasser.dev/about"
+        "item": "https://ebrahim-nasser.vercel.app/about"
       }
     ]
   }

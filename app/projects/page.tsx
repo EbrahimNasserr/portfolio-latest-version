@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://ebrahimnasser.dev"),
+  metadataBase: new URL("https://ebrahim-nasser.vercel.app/"),
   alternates: {
     canonical: "/projects",
   },
@@ -96,11 +96,11 @@ const structuredData = {
   "@type": "CollectionPage",
   "name": "Projects Portfolio",
   "description": "A collection of innovative web development projects by Ebrahim Nasser",
-  "url": "https://ebrahimnasser.dev/projects",
+  "url": "https://ebrahim-nasser.vercel.app/projects",
   "author": {
     "@type": "Person",
     "name": "Ebrahim Nasser",
-    "url": "https://ebrahimnasser.dev",
+    "url": "https://ebrahim-nasser.vercel.app/",
     "jobTitle": "Full-Stack Developer & UI/UX Designer",
     "sameAs": [
       "https://github.com/ebrahimnasser",
@@ -161,13 +161,13 @@ const structuredData = {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://ebrahimnasser.dev"
+        "item": "https://ebrahim-nasser.vercel.app/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Projects",
-        "item": "https://ebrahimnasser.dev/projects"
+        "item": "https://ebrahim-nasser.vercel.app/projects"
       }
     ]
   }
