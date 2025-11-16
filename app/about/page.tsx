@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Script from "next/script";
 import { FeatureSteps, ServicesSection, IntroSection } from "./_components";
 
 // ============================================================================
@@ -197,6 +198,22 @@ export default function AboutPage() {
 
   return (
     <>
+      {/* Google tag (gtag.js) */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-3XDBE3VR7J"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics-about" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-3XDBE3VR7J', {
+            page_path: '/about',
+          });
+        `}
+      </Script>
+      
       {/* Structured Data */}
       <script
         type="application/ld+json"

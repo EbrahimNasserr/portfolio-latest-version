@@ -6,6 +6,7 @@ import { ProjectsSection } from "@/components/projects-section"
 import { SkillsSection } from "@/components/skills-section"
 import { ContactSection } from "@/components/contact-section"
 import { HeroSection } from "@/components/hero-section"
+import Script from "next/script";
 
 // ============================================================================
 // SEO METADATA
@@ -185,7 +186,21 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      
+
+      {/* Google tag (gtag.js) */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-3XDBE3VR7J"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3XDBE3VR7J');
+          `}
+      </Script>
+
       {/* Page Content */}
       <main className="min-h-screen">
         <HeroSection />

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Script from "next/script";
 import {
     InteractiveDotsBackground,
     ContactHeroSection,
@@ -163,6 +164,22 @@ const structuredData = {
 const ContactPage = () => {
     return (
         <>
+            {/* Google tag (gtag.js) */}
+            <Script
+                src="https://www.googletagmanager.com/gtag/js?id=G-3XDBE3VR7J"
+                strategy="afterInteractive"
+            />
+            <Script id="google-analytics-contact" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-3XDBE3VR7J', {
+                        page_path: '/contact',
+                    });
+                `}
+            </Script>
+            
             {/* Structured Data */}
             <script
                 type="application/ld+json"

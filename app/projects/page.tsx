@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Script from "next/script"
 import { HeroSection, FeaturedProjectsSection, CTASection } from "./_components"
 
 // ============================================================================
@@ -179,12 +180,28 @@ const structuredData = {
 const ProjectsPage = () => {
   return (
     <>
+      {/* Google tag (gtag.js) */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-3XDBE3VR7J"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics-projects" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-3XDBE3VR7J', {
+            page_path: '/projects',
+          });
+        `}
+      </Script>
+
       {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      
+
       {/* Page Content */}
       <main className="min-h-screen bg-background">
         <HeroSection />
