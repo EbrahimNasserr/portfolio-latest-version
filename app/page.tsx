@@ -187,9 +187,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      {/* Google Search Console Verification */}
-      <meta name="google-site-verification" content="UoGoSbxzHZedipZGh2sne_waDCKCQ_xnBk8QKa1TKds" />
-
       {/* Google tag (gtag.js) */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-3XDBE3VR7J"

@@ -122,6 +122,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "mobile-web-app-capable": "yes",
+    "google-site-verification": "UoGoSbxzHZedipZGh2sne_waDCKCQ_xnBk8QKa1TKds",
   },
 }
 
@@ -132,6 +133,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      {/* Google Search Console Verification */}
+      <head>
+        <meta name="google-site-verification" content="UoGoSbxzHZedipZGh2sne_waDCKCQ_xnBk8QKa1TKds" />
+      </head>
       <body suppressHydrationWarning className={`font-sans ${GeistSans.variable} ${GeistMono.variable} border-2 mx-2 md:mx-6 mb-24 md:mb-0 antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <GSAPProvider>
