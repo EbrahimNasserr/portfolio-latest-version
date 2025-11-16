@@ -421,6 +421,11 @@ export function ProjectsSection() {
         <div className="max-w-6xl mx-auto">
           <MainTitle title="Featured Projects" ref={titleRef} />
 
+          <p className="text-center text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
+            <span className="inline-block animate-bounce mr-2">🎬</span>
+            <span className="font-medium text-foreground">Pro tip:</span> Hover over the cards below to watch the magic happen!
+          </p>
+
           <div ref={gridRef} className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
