@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Host
+Host: https://ebrahim-nasser.vercel.app
+
+# Sitemaps
+Sitemap: https://ebrahim-nasser.vercel.app/sitemap.xml
