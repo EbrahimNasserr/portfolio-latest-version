@@ -176,25 +176,30 @@ export default function AboutPage() {
 
   const features = [
     {
-      step: 'Step 1',
-      title: 'Learn the Basics',
-      content: 'Start your Web3 journey by learning the basics of blockchain.',
-      image: 'https://images.unsplash.com/photo-1723958929247-ef054b525153?q=80&w=2070&auto=format&fit=crop'
+      step: "Step 1",
+      title: "Start With Strong Foundations",
+      content:
+        "I began my journey by mastering HTML, CSS, JavaScript, and the core concepts of clean, responsive UI development.",
+      image:
+        "https://images.unsplash.com/photo-1628258334105-2a0b3d6efee1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // reliable coding image
     },
     {
-      step: 'Step 2',
-      title: 'Deep Dive',
-      content: 'Dive deep into blockchain fundamentals and smart contract development.',
-      image: 'https://images.unsplash.com/photo-1723931464622-b7df7c71e380?q=80&w=2070&auto=format&fit=crop'
+      step: "Step 2",
+      title: "Build Real Projects",
+      content:
+        "I moved into building full web apps using React, Next.js, and Vue.js — including eCommerce platforms, custom editors and SaaS applications.",
+      image:
+        "https://images.unsplash.com/photo-1556155092-8707de31f9c4?q=80&w=2070&auto=format&fit=crop", // building applications
     },
     {
-      step: 'Step 3',
-      title: 'Build Projects',
-      content: 'Graduate with hands-on Web3 experience through building decentralized applications.',
-      image: 'https://images.unsplash.com/photo-1725961476494-efa87ae3106a?q=80&w=2070&auto=format&fit=crop'
+      step: "Step 3",
+      title: "Deliver Smooth Experiences",
+      content:
+        "Today, I focus on performance, animations, and polished UI/UX to deliver fast, modern, and user-friendly web experiences.",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // clean ui/ux design
     },
-  ]
-
+  ];
 
   return (
     <>

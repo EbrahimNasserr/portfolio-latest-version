@@ -121,7 +121,7 @@ export const ContactHeroSection: React.FC = () => {
                 >
                     <motion.a
                         href="#contact"
-                        className="bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md flex items-center min-w-[160px] justify-center"
+                        className=" bg-primary dark:bg-primary/50 dark:hover:bg-primary/70 cursor-pointer text-primary-foreground shadow-xs hover:bg-primary/90 px-6 py-3 rounded-md text-sm font-semibold transition-colors duration-200 whitespace-nowrap flex items-center min-w-[160px] justify-center"
                         whileHover={{ scale: 1.03, y: -1 }}
                         whileTap={{ scale: 0.97 }}
                         transition={{ type: "spring", stiffness: 400, damping: 15 }}
