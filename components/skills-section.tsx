@@ -236,12 +236,12 @@ export function SkillsSection() {
                 {tools.map((tool) => (
                   <div
                     key={tool.name}
-                    className="tool-card bg-muted/50 dark:bg-gray-800/60 rounded-lg p-4 flex items-center gap-3 hover:bg-muted dark:hover:bg-gray-700 transition-colors duration-300 cursor-pointer"
+                    className="tool-card bg-muted/50 dark:bg-gray-800/60 rounded-lg p-2 sm:p-4 flex items-center gap-3 hover:bg-muted dark:hover:bg-gray-700 transition-colors duration-300 cursor-pointer"
                   >
-                    <div className="w-8 h-8 bg-background dark:bg-gray-900 rounded flex items-center justify-center font-bold text-sm">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-background dark:bg-gray-900 rounded flex items-center justify-center font-bold text-sm">
                       {tool.icon}
                     </div>
-                    <span className="text-sm font-medium">{tool.name}</span>
+                    <span className="text-xs sm:text-sm font-medium">{tool.name}</span>
                   </div>
                 ))}
               </div>

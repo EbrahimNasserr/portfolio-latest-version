@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Facebook } from "lucide-react"
 import MainTitle from "./shared/main-title/MainTitle"
 
 export function ContactSection() {
@@ -118,9 +118,9 @@ export function ContactSection() {
       href: "https://www.linkedin.com/in/ebrahim-nasser",
     },
     {
-      icon: Twitter,
-      label: "Twitter",
-      href: "https://twitter.com/ebrahimnasser",
+      icon: Facebook,
+      label: "Facebook",
+      href: "https://www.facebook.com/Ebrahim1Nasser/",
     },
   ]
 

@@ -1,11 +1,16 @@
 import { RefObject } from "react";
 
-export default function MainTitle({title, ref}: {title: string, ref: RefObject<HTMLHeadingElement | null>}) {
+export default function MainTitle({ title, ref }: { title: string, ref: RefObject<HTMLHeadingElement | null> }) {
   return (
-    <h2 ref={ref} className="text-4xl relative md:text-5xl font-bold text-center mb-12 text-balance ">
-      <span className="absolute top-1/2 right-0 w-[15%] sm:w-1/4 h-0.5 bg-primary -z-10"></span>
-      {title}
-      <span className="absolute top-1/2 left-0 w-[15%] sm:w-1/4 h-0.5 bg-primary -z-10"></span>
-    </h2>
+    <div className="mb-12">
+    <div className="relative flex items-center justify-center sm:justify-between gap-4">
+      <span className=" w-[15%] hidden sm:block sm:w-[18%] lg:w-[22%] h-0.5 bg-primary"></span>
+      <h2 ref={ref} className="text-3xl sm:text-4xl relative md:text-5xl font-bold text-center  text-balance ">
+        {title}
+      </h2>
+      <span className=" w-[15%] hidden sm:block sm:w-[18%] lg:w-[22%] h-0.5 bg-primary"></span>
+    </div>
+    <div className="w-1/2 mx-auto h-0.5 bg-primary mt-4 sm:hidden"></div>
+    </div>
   )
 }

@@ -65,7 +65,7 @@ function ServiceItem({ icon, secondaryIcon, title, description, variants, delay,
 export const ServicesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.1 });
+  const isInView = useInView(sectionRef, { once: false, amount: 0 });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,

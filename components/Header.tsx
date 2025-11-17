@@ -102,7 +102,7 @@ export default function Header() {
                 {/* Sidebar Header */}
                 <div className="flex items-center justify-between p-6 border-b border-border">
                   <Link href="/" onClick={closeSidebar}>
-                    <Image src="/logo.svg" className="w-10 h-10 rounded-full" alt="Logo" width={50} height={50} loading="lazy" />
+                    <Image src="/logo.svg" className="w-28 h-10 rounded-full" alt="Logo" width={50} height={50} loading="lazy" />
                   </Link>
                   <button
                     onClick={closeSidebar}
