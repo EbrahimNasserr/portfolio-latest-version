@@ -39,7 +39,7 @@ const initialProjects: Project[] = [
     title: "Alamir Store",
     description: "E-Commerce Platform with optimized performance and efficient state management",
     longDescription:
-      "A full-stack e-commerce platform built with Next.js for server-side rendering and optimized performance. Utilized Redux and RTK Query for efficient state management, data fetching, and caching. Implemented core e-commerce functionalities including product listings, search, filtering, and cart management. Successfully delivered to the client and currently live, serving users with a smooth and reliable shopping experience.",
+      "Full-stack e-commerce platform built with Next.js for optimized performance. Utilized Redux and RTK Query for efficient state management and data caching. Implemented product listings, search, filtering, and cart management. Successfully delivered and currently live.",
     image: "/modern-ecommerce-interface.webp",
     technologies: ["Next.js", "TailwindCSS", "Redux Toolkit", "RTK Query", "SEO Optimization"],
     liveUrl: "https://www.alamir.store/",
@@ -51,7 +51,7 @@ const initialProjects: Project[] = [
     title: "StitchItOn",
     description: "Custom eCommerce Platform with drag-and-drop design customization",
     longDescription:
-      "Developed a feature-rich, fully responsive eCommerce web application allowing users to design and purchase custom-printed apparel and products. Implemented an intuitive drag-and-drop customization system enabling real-time preview of user-generated designs, including the addition of custom pages and layouts to each product. Built the front-end using Vue.js with Tailwind CSS for responsive, pixel-perfect UI design. Integrated GSAP animations for smooth, interactive transitions and enhanced user experience. Developed a custom drag-and-drop editor for live product customization, along with shopping cart, authentication, and order management features.",
+      "Feature-rich eCommerce platform for custom-printed apparel. Features an intuitive drag-and-drop customization system with real-time preview, custom pages, and layouts. Built with Vue.js and Tailwind CSS, enhanced with GSAP animations. Includes shopping cart, authentication, and order management.",
     image: "/clothing-design-app-interface.jpg",
     technologies: ["Vue.js", "GSAP", "Pinia.js", "TailwindCSS"],
     liveUrl: "https://stitchiton.net/",
@@ -63,9 +63,9 @@ const initialProjects: Project[] = [
     title: "Plan4U",
     description: "Lesson Presentation & Content Management Tool for educators",
     longDescription:
-      "Designed and developed a web-based interactive lesson editor tailored for educators to create, manage, and deliver presentations with real-time content tools. The platform allows teachers to organize lessons into nested folders, share content with students, and build dynamic learning materials directly in the browser. Built a custom WYSIWYG-style presentation editor for lesson creation with full text/image editing and layout tools. Utilized Vue.js and Tailwind CSS to develop a responsive and accessible UI/UX. Implemented Pinia for efficient global state management across complex user and folder hierarchies. Developed folder nesting, enabling deep content organization and reordering. Integrated user roles and authentication, enabling secure teacher-student content access and collaboration.",
+      "Web-based interactive lesson editor for educators to create and deliver presentations. Features nested folder organization, content sharing with students, and a custom WYSIWYG editor with text/image editing. Built with Vue.js, Tailwind CSS, and Pinia for state management. Includes user roles and authentication for secure teacher-student collaboration.",
     image: "/project1.webp",
-    technologies: ["Vue.js", "Pinia", "TailwindCSS", "WYSIWYG Editor" , "Web Socket"],
+    technologies: ["Vue.js", "Pinia", "TailwindCSS", "WYSIWYG Editor", "Web Socket"],
     liveUrl: "https://plan4u.echop.us/",
     githubUrl: "https://github.com/echopus/stitch-frontend",
     featured: false,
@@ -75,7 +75,7 @@ const initialProjects: Project[] = [
     title: "FreshCart",
     description: "E-Commerce Application - Final Project at Route IT Training Center",
     longDescription:
-      "Built a dynamic e-Commerce application as the final project for Route Academy, showcasing the mastery of front-end development skills. Managed global state using the Context API for seamless data sharing across components. Integrated React Query for efficient data fetching, caching, and synchronization with the backend. Implemented features such as product browsing, cart management, and user authentication. Designed a clean and responsive UI to enhance the user experience.",
+      "Dynamic e-Commerce application built as the final project for Route Academy. Utilized Context API for state management and React Query for efficient data fetching and caching. Features product browsing, cart management, and user authentication with a clean, responsive UI.",
     image: "/grocery-delivery-app.png",
     technologies: ["React", "Context API", "React Query", "TailwindCSS"],
     liveUrl: undefined,
