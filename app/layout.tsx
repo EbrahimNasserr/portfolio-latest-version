@@ -122,7 +122,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "mobile-web-app-capable": "yes",
-    "google-site-verification": "UoGoSbxzHZedipZGh2sne_waDCKCQ_xnBk8QKa1TKds",
+    "google-site-verification": "7nPJOw2WpS2cTEcIki1kWaEf7HjHJ8CrW73JPofilwo",
   },
 }
 
