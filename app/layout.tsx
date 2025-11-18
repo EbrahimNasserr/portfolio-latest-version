@@ -135,7 +135,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       {/* Google Search Console Verification */}
       <head>
-        <meta name="google-site-verification" content="UoGoSbxzHZedipZGh2sne_waDCKCQ_xnBk8QKa1TKds" />
+        <meta name="google-site-verification" content="7nPJOw2WpS2cTEcIki1kWaEf7HjHJ8CrW73JPofilwo" />
       </head>
       <body suppressHydrationWarning className={`font-sans ${GeistSans.variable} ${GeistMono.variable} border-2 mx-2 md:mx-6 antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
