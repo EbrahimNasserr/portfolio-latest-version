@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { GSAPProvider } from "@/components/gsap-provider"
+import { LenisProvider } from "@/components/lenis-provider"
 import { Suspense } from "react"
 import "./globals.css"
 import Header from "@/components/Header"
@@ -139,13 +140,15 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className={`font-sans ${GeistSans.variable} ${GeistMono.variable} border-2 mx-2 md:mx-6 antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <GSAPProvider>
-            <Suspense fallback={null}>
-              <Header />
-              {children}
-              <Footer />
-            </Suspense>
-          </GSAPProvider>
+          <LenisProvider>
+            <GSAPProvider>
+              <Suspense fallback={null}>
+                <Header />
+                {children}
+                <Footer />
+              </Suspense>
+            </GSAPProvider>
+          </LenisProvider>
         </ThemeProvider>
         <Analytics />
       </body>
